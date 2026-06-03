@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Al Sarh Technical Services
+
+Marketing website for **Al Sarh Technical Services** — a UAE-based provider of
+integrated building maintenance and MEP (Mechanical, Electrical & Plumbing)
+solutions.
+
+Built with [Next.js 15](https://nextjs.org) (App Router), TypeScript, and
+[Tailwind CSS v4](https://tailwindcss.com).
+
+## Features
+
+- Responsive, single-page marketing site with smooth-scroll navigation
+- Sections: Hero, Services, Why Choose Us, About, Contact, Footer
+- Accessible quote-request form (ready to wire up to an email/CRM endpoint)
+- Brand theme defined via CSS variables in `src/app/globals.css`
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies and start the dev server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    layout.tsx      # Root layout, fonts & metadata
+    page.tsx        # Home page composition
+    globals.css     # Theme tokens & base styles
+  components/
+    Navbar.tsx
+    Hero.tsx
+    Services.tsx
+    WhyUs.tsx
+    About.tsx
+    Contact.tsx
+    Footer.tsx
+```
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+- **Brand colors / fonts:** edit the CSS variables in `src/app/globals.css`.
+- **Contact details:** update phone, email and address in `Contact.tsx` and
+  `Footer.tsx`.
+- **Contact form submission:** the `handleSubmit` handler in `Contact.tsx` is a
+  placeholder — connect it to your email service, API route, or CRM.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Available Scripts
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Command         | Description                       |
+| --------------- | --------------------------------- |
+| `npm run dev`   | Start the development server      |
+| `npm run build` | Create a production build         |
+| `npm run start` | Run the production build          |
+| `npm run lint`  | Run ESLint                        |
