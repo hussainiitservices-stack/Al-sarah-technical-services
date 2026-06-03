@@ -9,17 +9,17 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Al Sarh Technical Services | Building Maintenance & MEP in the UAE",
+  title:
+    "Al Sarh Technical Services | Concrete Scan, Cutting & Core Drilling UAE",
   description:
-    "Al Sarh Technical Services delivers reliable AC, electrical, plumbing, civil and fit-out maintenance across the UAE. Licensed technicians, 24/7 emergency support.",
+    "Al Sarh Technical Services LLC provides concrete scanning, cutting and core drilling across the UAE. ISO certified teams, advanced equipment, health and safety first.",
   keywords: [
     "Al Sarh Technical Services",
-    "technical services UAE",
-    "AC maintenance",
-    "electrical services",
-    "plumbing",
-    "building maintenance",
-    "MEP",
+    "concrete scanning UAE",
+    "concrete cutting Dubai",
+    "core drilling UAE",
+    "demolition contractor UAE",
+    "GPR concrete scan",
   ],
 };
 

@@ -4,13 +4,10 @@ import { useState } from "react";
 import Reveal from "./Reveal";
 
 const serviceOptions = [
-  "AC & HVAC",
-  "Electrical Works",
-  "Plumbing & Sanitary",
-  "Civil & Maintenance",
-  "Painting & Finishing",
-  "Fit-Out & Joinery",
-  "Annual Maintenance Contract",
+  "Concrete Scan",
+  "Concrete Cutting",
+  "Concrete Core / Drilling",
+  "General Enquiries",
 ];
 
 export default function Contact() {
@@ -18,7 +15,6 @@ export default function Contact() {
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    // Wire this up to your email service or CRM endpoint.
     setSubmitted(true);
   }
 
@@ -27,23 +23,23 @@ export default function Contact() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
           <Reveal direction="right">
-            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-dark">
+            <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
               Get In Touch
             </span>
             <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
-              Request a Free Quote
+              Request a Quote
             </h2>
             <p className="mt-4 max-w-md text-muted">
-              Tell us what you need and our team will get back to you within one
-              business day. For emergencies, call our 24/7 hotline.
+              Tell us what you need and our experts will get back to you shortly.
+              For urgent enquiries, call either of our lines below.
             </p>
 
             <div className="mt-8 space-y-5">
               {[
                 {
-                  label: "Call us",
-                  value: "+971 4 000 0000",
-                  href: "tel:+97140000000",
+                  label: "Mobile",
+                  value: "+971 52 106 0007",
+                  href: "tel:+971521060007",
                   icon: (
                     <path
                       d="M3 5a2 2 0 012-2h2l2 5-2 1a11 11 0 005 5l1-2 5 2v2a2 2 0 01-2 2A16 16 0 013 5z"
@@ -53,9 +49,21 @@ export default function Contact() {
                   ),
                 },
                 {
-                  label: "Email us",
-                  value: "info@alsarhtechnical.ae",
-                  href: "mailto:info@alsarhtechnical.ae",
+                  label: "Office",
+                  value: "+971 6 53 11922",
+                  href: "tel:+97165311922",
+                  icon: (
+                    <path
+                      d="M3 5a2 2 0 012-2h2l2 5-2 1a11 11 0 005 5l1-2 5 2v2a2 2 0 01-2 2A16 16 0 013 5z"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  ),
+                },
+                {
+                  label: "Email",
+                  value: "info@alsarhtechnicalservices.com",
+                  href: "mailto:info@alsarhtechnicalservices.com",
                   icon: (
                     <path
                       d="M3 6h18v12H3zM3 7l9 6 9-6"
@@ -65,8 +73,8 @@ export default function Contact() {
                   ),
                 },
                 {
-                  label: "Visit us",
-                  value: "Dubai, United Arab Emirates",
+                  label: "Head office",
+                  value: "Al Jurf, Industrial 3, Ajman, UAE",
                   href: "#",
                   icon: (
                     <path
@@ -80,9 +88,9 @@ export default function Contact() {
                 <a
                   key={c.label}
                   href={c.href}
-                  className="flex items-center gap-4 rounded-2xl border border-line bg-white p-4 transition hover:border-accent"
+                  className="flex items-center gap-4 rounded-2xl border border-line bg-white p-4 transition hover:border-navy/20"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-accent">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-white">
                     <svg
                       className="h-5 w-5"
                       viewBox="0 0 24 24"
@@ -106,10 +114,14 @@ export default function Contact() {
             </div>
           </Reveal>
 
-          <Reveal direction="left" delay={120} className="rounded-3xl border border-line bg-white p-7 shadow-xl shadow-navy/5 sm:p-9">
+          <Reveal
+            direction="left"
+            delay={120}
+            className="rounded-3xl border border-line bg-white p-7 shadow-xl shadow-navy/5 sm:p-9"
+          >
             {submitted ? (
               <div className="flex h-full min-h-80 flex-col items-center justify-center text-center">
-                <div className="grid h-16 w-16 place-items-center rounded-full bg-accent/15 text-accent-dark">
+                <div className="grid h-16 w-16 place-items-center rounded-full bg-surface text-navy">
                   <svg
                     className="h-8 w-8"
                     viewBox="0 0 24 24"
@@ -128,7 +140,7 @@ export default function Contact() {
                   Thank you!
                 </h3>
                 <p className="mt-2 text-muted">
-                  Your request has been received. Our team will contact you
+                  Your request has been received. We shall get back to you
                   shortly.
                 </p>
               </div>
@@ -189,9 +201,9 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-accent px-6 py-3.5 text-sm font-semibold text-navy transition hover:bg-accent-dark"
+                  className="btn-primary w-full px-6 py-3.5 text-sm"
                 >
-                  Send Request
+                  Send Message
                 </button>
               </form>
             )}

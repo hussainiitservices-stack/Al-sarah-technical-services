@@ -38,22 +38,22 @@ export default function Industries() {
     <section className="relative overflow-hidden bg-white py-20">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal direction="up" className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-dark">
-            Expertise
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+            Project Experience
           </span>
           <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
             Sectors We Serve
           </h2>
           <p className="mt-4 text-muted">
-            Trusted by a wide range of properties and facilities across the
-            Emirates.
+            From malls and hotels to towers and infrastructure — trusted on
+            complex concrete works across the Emirates.
           </p>
         </Reveal>
       </div>
 
-      <div className="mt-12 space-y-4">
-        <Marquee items={rowOne} variant="light" />
-        <Marquee items={rowTwo} variant="light" reverse />
+      <div className="mt-12 space-y-5">
+        <Marquee items={rowOne} variant="light" speed="fast" />
+        <Marquee items={rowTwo} variant="light" speed="fast" reverse />
       </div>
 
       {/* Edge fades */}

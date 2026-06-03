@@ -7,8 +7,9 @@
   /* Brand palette — matched to the Al Sarh logo (deep navy on white) */
   --brand-navy: #14143f;
   --brand-blue: #26266e;
-  --brand-accent: #c4a052;
-  --brand-accent-dark: #a8863d;
+  /* Logo navy — primary action / button color */
+  --brand-accent: #14143f;
+  --brand-accent-dark: #26266e;
   --muted: #5c6478;
   --surface: #f5f6fb;
   --border: #e6e8f2;
@@ -29,10 +30,21 @@
   --font-sans: var(--font-sans), system-ui, sans-serif;
 
   --animate-fade-up: fade-up 0.7s ease-out both;
-  --animate-marquee: marquee 32s linear infinite;
-  --animate-marquee-reverse: marquee-reverse 32s linear infinite;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 28s linear infinite;
+  --animate-marquee-fast: marquee 18s linear infinite;
+  --animate-marquee-fast-reverse: marquee-reverse 18s linear infinite;
+  --animate-marquee-slow: marquee 40s linear infinite;
+  --animate-marquee-slow-reverse: marquee-reverse 40s linear infinite;
+  --animate-marquee-logos: marquee 32s linear infinite;
+  --animate-marquee-logos-reverse: marquee-reverse 32s linear infinite;
   --animate-ken-burns: ken-burns 18s ease-in-out infinite alternate;
-  --animate-float: float 6s ease-in-out infinite;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-float-delayed: float 7s ease-in-out 1s infinite;
+  --animate-pulse-soft: pulse-soft 3s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-glow: glow 4s ease-in-out infinite;
+  --animate-spin-slow: spin 20s linear infinite;
 }
 
 @keyframes fade-up {
@@ -79,12 +91,76 @@
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-12px);
+    transform: translateY(-14px);
   }
+}
+
+@keyframes pulse-soft {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.reveal-ease {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.shimmer-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(20, 20, 63, 0.06) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
@@ -93,8 +169,27 @@ body {
 }
 
 ::selection {
-  background: var(--brand-accent);
-  color: var(--brand-navy);
+  background: var(--brand-navy);
+  color: #ffffff;
+}
+
+.btn-primary {
+  border-radius: 9999px;
+  background: var(--brand-navy);
+  color: #ffffff;
+  font-weight: 600;
+  transition:
+    background-color 0.2s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-primary:hover {
+  background: var(--brand-blue);
+  transform: scale(1.03);
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
 }
 
 .form-input {

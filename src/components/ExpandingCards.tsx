@@ -11,39 +11,25 @@ type Panel = {
 
 const panels: Panel[] = [
   {
-    title: "AC & HVAC",
+    title: "Concrete Scan",
     description:
-      "Installation, servicing, gas charging and rapid repairs for split, ducted and central cooling systems.",
+      "Real-time GPR data to locate metallic and non-metallic objects, moisture, slab thickness and defects — without multiple passes.",
+    image:
+      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop",
+  },
+  {
+    title: "Concrete Cutting",
+    description:
+      "State-of-the-art diamond cutting tools for smooth removal with precise shape, size and accuracy on site.",
+    image:
+      "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2076&auto=format&fit=crop",
+  },
+  {
+    title: "Concrete Core / Drilling",
+    description:
+      "Diamond-impregnated core drilling for clean holes at depth — cost-effective, accurate and built for demanding structures.",
     image:
       "https://images.unsplash.com/photo-1581094794329-c8112a89af12?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    title: "Electrical",
-    description:
-      "DEWA-compliant wiring, distribution boards, lighting design and certified fault-finding.",
-    image:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop",
-  },
-  {
-    title: "Plumbing",
-    description:
-      "Leak detection, pipework, water-tank cleaning and complete sanitary installations.",
-    image:
-      "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    title: "Civil Works",
-    description:
-      "Masonry, tiling, waterproofing and preventive maintenance that protects your property.",
-    image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=2071&auto=format&fit=crop",
-  },
-  {
-    title: "Fit-Out",
-    description:
-      "Custom joinery, partitions and full interior fit-outs delivered on time and on budget.",
-    image:
-      "https://images.unsplash.com/photo-1604762524889-3e2fcc145683?q=80&w=2070&auto=format&fit=crop",
   },
 ];
 
@@ -54,15 +40,15 @@ export default function ExpandingCards() {
     <section className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <Reveal direction="up" className="mx-auto max-w-2xl text-center">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-dark">
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Premium Solutions
           </span>
           <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
             Explore Our Core Services
           </h2>
           <p className="mt-4 text-muted">
-            Hover over a panel to discover how our specialist teams keep your
-            property running.
+            Hover a panel to see how our specialist teams deliver scanning,
+            cutting and core drilling across the UAE.
           </p>
         </Reveal>
 
@@ -75,8 +61,10 @@ export default function ExpandingCards() {
                   key={p.title}
                   onMouseEnter={() => setActive(i)}
                   onClick={() => setActive(i)}
-                  className={`relative cursor-pointer overflow-hidden rounded-2xl transition-all duration-500 ease-in-out ${
-                    isActive ? "flex-[5]" : "flex-[1]"
+                  className={`relative cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                    isActive
+                      ? "flex-[5] shadow-2xl shadow-navy/20 ring-2 ring-navy/20"
+                      : "flex-[1] hover:flex-[1.15]"
                   }`}
                 >
                   <div
@@ -85,9 +73,8 @@ export default function ExpandingCards() {
                     }`}
                     style={{ backgroundImage: `url('${p.image}')` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/35 to-transparent" />
 
-                  {/* Number badge */}
                   <span
                     className={`absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full bg-white/15 text-sm font-bold text-white backdrop-blur transition-opacity duration-300 ${
                       isActive ? "opacity-100" : "opacity-0"
@@ -96,7 +83,6 @@ export default function ExpandingCards() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
-                  {/* Collapsed vertical title */}
                   <span
                     className={`absolute bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-lg font-bold text-white transition-opacity duration-300 [writing-mode:vertical-rl] rotate-180 ${
                       isActive ? "opacity-0" : "opacity-100"
@@ -105,7 +91,6 @@ export default function ExpandingCards() {
                     {p.title}
                   </span>
 
-                  {/* Expanded content */}
                   <div
                     className={`absolute inset-x-0 bottom-0 p-6 transition-all duration-500 ${
                       isActive
@@ -119,7 +104,7 @@ export default function ExpandingCards() {
                     </p>
                     <a
                       href="#contact"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent transition hover:gap-3"
+                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:gap-3"
                     >
                       Enquire now
                       <svg

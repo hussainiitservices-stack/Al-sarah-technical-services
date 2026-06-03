@@ -26,14 +26,14 @@ export default function Logo({
   // Fallback dummy mark if /logo.png is missing
   return (
     <span className={`flex items-center gap-3 ${className}`}>
-      <span className="grid h-11 w-11 place-items-center rounded-lg bg-accent text-navy">
+      <span className="grid h-11 w-11 place-items-center rounded-lg bg-navy text-white">
         <svg className="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 2C12 2 5 9 5 14a7 7 0 0014 0C19 9 12 2 12 2z" />
         </svg>
       </span>
-      <span className="leading-tight text-white">
+      <span className="leading-tight text-navy">
         <span className="block text-base font-bold">Al Sarh</span>
-        <span className="block text-[11px] uppercase tracking-[0.2em] text-accent">
+        <span className="block text-[11px] uppercase tracking-[0.2em] text-brand">
           Technical Services
         </span>
       </span>

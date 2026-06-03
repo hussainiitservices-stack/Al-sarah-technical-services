@@ -4,35 +4,33 @@ const columns = [
   {
     heading: "Services",
     links: [
-      "AC & HVAC",
-      "Electrical Works",
-      "Plumbing & Sanitary",
-      "Civil & Maintenance",
-      "Fit-Out & Joinery",
+      "Concrete Scan",
+      "Concrete Cutting",
+      "Concrete Core / Drilling",
     ],
   },
   {
     heading: "Company",
-    links: ["About Us", "Why Choose Us", "Careers", "Contact"],
+    links: ["About Us", "Why Choose Us", "Projects", "Contact"],
   },
 ];
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="border-t border-line bg-white text-navy">
       <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/60">
-              Integrated building maintenance and MEP services trusted across the
-              UAE.
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
+              Concrete scanning, cutting and core drilling specialists trusted
+              across the UAE.
             </p>
           </div>
 
           {columns.map((col) => (
             <div key={col.heading}>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-accent">
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">
                 {col.heading}
               </h4>
               <ul className="mt-4 space-y-2.5">
@@ -40,7 +38,7 @@ export default function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-sm text-white/60 transition hover:text-white"
+                      className="text-sm text-muted transition hover:text-navy"
                     >
                       {link}
                     </a>
@@ -51,38 +49,43 @@ export default function Footer() {
           ))}
 
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-accent">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-brand">
               Contact
             </h4>
-            <ul className="mt-4 space-y-2.5 text-sm text-white/60">
-              <li>Dubai, United Arab Emirates</li>
+            <ul className="mt-4 space-y-2.5 text-sm text-muted">
+              <li>Al Jurf, Industrial 3, Ajman, UAE</li>
               <li>
-                <a href="tel:+97140000000" className="hover:text-white">
-                  +971 4 000 0000
+                <a href="tel:+971521060007" className="hover:text-navy">
+                  +971 52 106 0007
+                </a>
+              </li>
+              <li>
+                <a href="tel:+97165311922" className="hover:text-navy">
+                  +971 6 53 11922
                 </a>
               </li>
               <li>
                 <a
-                  href="mailto:info@alsarhtechnical.ae"
-                  className="hover:text-white"
+                  href="mailto:info@alsarhtechnicalservices.com"
+                  className="hover:text-navy"
                 >
-                  info@alsarhtechnical.ae
+                  info@alsarhtechnicalservices.com
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-white/50 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-line pt-6 text-sm text-muted sm:flex-row">
           <p>
-            &copy; {new Date().getFullYear()} Al Sarh Technical Services. All
-            rights reserved.
+            &copy; {new Date().getFullYear()} Al Sarh Technical Services LLC.
+            All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white">
+            <a href="#" className="hover:text-navy">
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-white">
+            <a href="#" className="hover:text-navy">
               Terms of Service
             </a>
           </div>

@@ -1,17 +1,20 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Direction = "up" | "down" | "left" | "right" | "scale" | "fade";
 
 const hidden: Record<Direction, string> = {
-  up: "opacity-0 translate-y-10",
-  down: "opacity-0 -translate-y-10",
-  left: "opacity-0 translate-x-12",
-  right: "opacity-0 -translate-x-12",
-  scale: "opacity-0 scale-90",
-  fade: "opacity-0",
+  up: "opacity-0 translate-y-14 blur-[2px]",
+  down: "opacity-0 -translate-y-14 blur-[2px]",
+  left: "opacity-0 translate-x-16 blur-[2px]",
+  right: "opacity-0 -translate-x-16 blur-[2px]",
+  scale: "opacity-0 scale-[0.88] blur-[3px]",
+  fade: "opacity-0 blur-[2px]",
 };
+
+const visibleClass =
+  "opacity-100 translate-x-0 translate-y-0 scale-100 blur-0";
 
 type RevealProps = {
   children: React.ReactNode;
@@ -35,27 +38,29 @@ export default function Reveal({
     const el = ref.current;
     if (!el) return;
 
+    const reduce = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduce) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
-
-            if (once) {
-              observer.unobserve(entry.target);
-            }
+            if (once) observer.unobserve(entry.target);
           } else if (!once) {
             setVisible(false);
           }
         });
       },
-      {
-        threshold: 0.15,
-      }
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(el);
-
     return () => observer.disconnect();
   }, [once]);
 
@@ -63,10 +68,8 @@ export default function Reveal({
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out will-change-transform ${
-        visible
-          ? "opacity-100 translate-x-0 translate-y-0 scale-100"
-          : hidden[direction]
+      className={`reveal-ease transition-all duration-1000 will-change-[transform,opacity,filter] ${
+        visible ? visibleClass : hidden[direction]
       } ${className}`}
     >
       {children}

@@ -2,24 +2,24 @@ import Reveal from "./Reveal";
 
 const reasons = [
   {
-    title: "Qualified Technicians",
+    title: "Skilled Cutting Experts",
     description:
-      "Trained, background-checked specialists for every trade — no subcontracting surprises.",
+      "Industry-trained teams using the latest scanning, cutting and drilling equipment on every job.",
   },
   {
-    title: "Fast Response Times",
+    title: "ISO Certified Quality",
     description:
-      "Same-day callouts and a 24/7 hotline so urgent issues never wait.",
+      "Quality control systems and safety certification backed by rigorous on-site procedures.",
   },
   {
-    title: "Transparent Pricing",
+    title: "Health & Safety First",
     description:
-      "Clear, upfront quotations with no hidden charges or inflated parts.",
+      "Method statements, risk assessments and safety training for every mobilization.",
   },
   {
-    title: "Quality Guaranteed",
+    title: "On-Time Delivery",
     description:
-      "Workmanship warranties and quality checks on every job we complete.",
+      "Complex project execution with dependable scheduling and 100% customer satisfaction focus.",
   },
 ];
 
@@ -28,28 +28,25 @@ export default function WhyUs() {
     <section id="why-us" className="bg-white py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
         <Reveal direction="right">
-          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-dark">
+          <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Why Choose Us
           </span>
           <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
-            The Dependable Choice for Property Owners & Facility Managers
+            The Trusted Choice for Concrete Works in the UAE
           </h2>
           <p className="mt-4 text-muted">
-            We combine technical expertise with genuine reliability. Whether
-            it&apos;s a single repair or an annual maintenance contract, you get
-            the same standard of care every time.
+            We combine advanced technology with dependable field execution —
+            whether you need scanning before cutting or core drilling on a major
+            tower project.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <a
-              href="#contact"
-              className="rounded-full bg-navy px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand"
-            >
-              Start a Project
+            <a href="#contact" className="btn-primary px-6 py-3 text-sm">
+              Request a Quote
             </a>
             <a
               href="#services"
-              className="rounded-full border border-line px-6 py-3 text-sm font-semibold text-navy transition hover:border-accent"
+              className="rounded-full border border-line px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy/30 hover:bg-surface"
             >
               View All Services
             </a>
@@ -59,8 +56,8 @@ export default function WhyUs() {
         <div className="grid gap-5 sm:grid-cols-2">
           {reasons.map((r, i) => (
             <Reveal key={r.title} direction="up" delay={i * 120}>
-              <div className="h-full rounded-2xl border border-line bg-surface p-6 transition hover:-translate-y-1 hover:border-accent hover:shadow-lg hover:shadow-navy/5">
-                <span className="text-2xl font-extrabold text-accent">
+              <div className="h-full rounded-2xl border border-line bg-surface p-6 transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:border-navy/20 hover:shadow-lg hover:shadow-navy/10">
+                <span className="text-2xl font-extrabold text-navy/25">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 text-lg font-bold text-navy">{r.title}</h3>

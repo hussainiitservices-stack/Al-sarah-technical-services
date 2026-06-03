@@ -23,9 +23,9 @@ export default function Home() {
         <ExpandingCards />
         <StackingCards />
         <Industries />
+        <Clients />
         <WhyUs />
         <About />
-        <Clients />
         <Brochure />
         <Contact />
       </main>
