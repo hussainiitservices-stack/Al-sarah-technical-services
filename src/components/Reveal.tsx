@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createElement, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 type Direction = "up" | "down" | "left" | "right" | "scale" | "fade";
 
@@ -18,7 +18,6 @@ type RevealProps = {
   direction?: Direction;
   delay?: number;
   className?: string;
-  as?: React.ElementType;
   once?: boolean;
 };
 
@@ -27,24 +26,14 @@ export default function Reveal({
   direction = "up",
   delay = 0,
   className = "",
-  as: Tag = "div",
   once = true,
 }: RevealProps) {
-  const ref = useRef<any>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-
-    const reduce = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-
-    if (reduce) {
-      setVisible(true);
-      return;
-    }
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -62,7 +51,6 @@ export default function Reveal({
       },
       {
         threshold: 0.15,
-        rootMargin: "0px 0px -60px 0px",
       }
     );
 
@@ -71,19 +59,17 @@ export default function Reveal({
     return () => observer.disconnect();
   }, [once]);
 
-  return createElement(
-    Tag,
-    {
-      ref,
-      style: {
-        transitionDelay: `${delay}ms`,
-      },
-      className: `transition-all duration-700 ease-out will-change-transform ${
+  return (
+    <div
+      ref={ref}
+      style={{ transitionDelay: `${delay}ms` }}
+      className={`transition-all duration-700 ease-out will-change-transform ${
         visible
           ? "opacity-100 translate-x-0 translate-y-0 scale-100"
           : hidden[direction]
-      } ${className}`,
-    },
-    children
+      } ${className}`}
+    >
+      {children}
+    </div>
   );
 }
