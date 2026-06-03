@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
 
 type Direction = "up" | "down" | "left" | "right" | "scale" | "fade";
 
@@ -25,7 +25,7 @@ export default function Reveal({
   direction?: Direction;
   delay?: number;
   className?: string;
-  as?: keyof React.JSX.IntrinsicElements;
+  as?: "div" | "section" | "article" | "span" | "p" | "li";
   once?: boolean;
 }) {
   const ref = useRef<HTMLElement | null>(null);
@@ -61,16 +61,15 @@ export default function Reveal({
     return () => observer.disconnect();
   }, [once]);
 
-  return (
-    // @ts-expect-error -- dynamic tag with ref
-    <Tag
-      ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-700 ease-out will-change-transform ${
+  return createElement(
+    Tag,
+    {
+      ref,
+      style: { transitionDelay: `${delay}ms` },
+      className: `transition-all duration-700 ease-out will-change-transform ${
         visible ? "opacity-100 translate-x-0 translate-y-0 scale-100" : hidden[direction]
-      } ${className}`}
-    >
-      {children}
-    </Tag>
+      } ${className}`,
+    },
+    children
   );
 }
