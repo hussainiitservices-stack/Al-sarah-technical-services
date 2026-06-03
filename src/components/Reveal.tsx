@@ -1,6 +1,6 @@
 "use client";
 
-import { createElement, useEffect, useRef, useState } from "react";
+import React, { createElement, useEffect, useRef, useState } from "react";
 
 type Direction = "up" | "down" | "left" | "right" | "scale" | "fade";
 
@@ -13,6 +13,15 @@ const hidden: Record<Direction, string> = {
   fade: "opacity-0",
 };
 
+type RevealProps = {
+  children: React.ReactNode;
+  direction?: Direction;
+  delay?: number;
+  className?: string;
+  as?: React.ElementType;
+  once?: boolean;
+};
+
 export default function Reveal({
   children,
   direction = "up",
@@ -20,15 +29,8 @@ export default function Reveal({
   className = "",
   as: Tag = "div",
   once = true,
-}: {
-  children: React.ReactNode;
-  direction?: Direction;
-  delay?: number;
-  className?: string;
-  as?: "div" | "section" | "article" | "span" | "p" | "li";
-  once?: boolean;
-}) {
-  const ref = useRef<HTMLElement | null>(null);
+}: RevealProps) {
+  const ref = useRef<any>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -38,6 +40,7 @@ export default function Reveal({
     const reduce = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+
     if (reduce) {
       setVisible(true);
       return;
@@ -48,16 +51,23 @@ export default function Reveal({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setVisible(true);
-            if (once) observer.unobserve(entry.target);
+
+            if (once) {
+              observer.unobserve(entry.target);
+            }
           } else if (!once) {
             setVisible(false);
           }
         });
       },
-      { threshold: 0.15, rootMargin: "0px 0px -60px 0px" }
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -60px 0px",
+      }
     );
 
     observer.observe(el);
+
     return () => observer.disconnect();
   }, [once]);
 
@@ -65,9 +75,13 @@ export default function Reveal({
     Tag,
     {
       ref,
-      style: { transitionDelay: `${delay}ms` },
+      style: {
+        transitionDelay: `${delay}ms`,
+      },
       className: `transition-all duration-700 ease-out will-change-transform ${
-        visible ? "opacity-100 translate-x-0 translate-y-0 scale-100" : hidden[direction]
+        visible
+          ? "opacity-100 translate-x-0 translate-y-0 scale-100"
+          : hidden[direction]
       } ${className}`,
     },
     children
