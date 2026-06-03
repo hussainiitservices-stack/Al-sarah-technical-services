@@ -22,6 +22,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   const headerClass = scrolled
     ? "bg-white/95 backdrop-blur shadow-sm shadow-navy/5 border-b border-line"
     : "bg-white/80 backdrop-blur border-b border-transparent";
@@ -65,9 +72,9 @@ export default function Navbar() {
         </div>
       </div>
 
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <a href="#home">
-          <Logo />
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-5 sm:py-4 lg:px-8">
+        <a href="#home" className="min-h-11 min-w-0 shrink py-1">
+          <Logo height="h-9 sm:h-12" />
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -76,15 +83,17 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="#contact" className="btn-primary px-5 py-2.5 text-sm">
+          <a href="#contact" className="btn-primary min-h-11 px-5 py-2.5 text-sm">
             Get a Quote
           </a>
         </div>
 
         <button
-          aria-label="Toggle menu"
+          type="button"
+          aria-expanded={open}
+          aria-label={open ? "Close menu" : "Open menu"}
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-navy md:hidden"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg text-navy active:bg-surface md:hidden"
         >
           <div className="space-y-1.5">
             <span
@@ -107,22 +116,29 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="border-t border-line bg-white md:hidden">
-          <div className="space-y-1 px-5 py-4">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto border-t border-line bg-white md:hidden">
+          <div className="space-y-1 px-4 py-4 pb-6">
             {links.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className="block rounded-lg px-3 py-2.5 text-sm font-medium text-navy/80 hover:bg-surface hover:text-navy"
+                className="flex min-h-12 items-center rounded-lg px-4 text-base font-medium text-navy/80 active:bg-surface"
               >
                 {l.label}
               </a>
             ))}
             <a
+              href="tel:+971521060007"
+              onClick={() => setOpen(false)}
+              className="flex min-h-12 items-center gap-2 rounded-lg px-4 text-base font-medium text-navy active:bg-surface"
+            >
+              Call +971 52 106 0007
+            </a>
+            <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="btn-primary mt-2 block px-5 py-2.5 text-center text-sm"
+              className="btn-primary mt-2 flex min-h-12 items-center justify-center text-base"
             >
               Get a Quote
             </a>

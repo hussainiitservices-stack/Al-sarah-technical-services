@@ -155,6 +155,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -166,6 +168,17 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: clip;
+}
+
+/* 44px min touch targets; 16px inputs prevent iOS zoom on focus */
+@media (max-width: 767px) {
+  .form-input,
+  .form-input select,
+  select.form-input {
+    font-size: 1rem;
+    min-height: 3rem;
+  }
 }
 
 ::selection {

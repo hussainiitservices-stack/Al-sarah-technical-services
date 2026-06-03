@@ -62,7 +62,7 @@ function Item({
   if (variant === "logo" && item.logo) {
     return (
       <figure
-        className="group/logo flex h-[5.5rem] w-[11.5rem] shrink-0 flex-col items-center justify-center rounded-2xl border border-line bg-white px-5 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:border-navy/25 hover:shadow-lg hover:shadow-navy/10"
+        className="group/logo flex h-20 w-36 shrink-0 flex-col items-center justify-center rounded-2xl border border-line bg-white px-3 shadow-sm transition-all duration-500 active:scale-95 sm:h-[5.5rem] sm:w-[11.5rem] sm:px-5 sm:hover:-translate-y-2 sm:hover:scale-105 sm:hover:border-navy/25 sm:hover:shadow-lg sm:hover:shadow-navy/10"
         title={item.label}
       >
         <div className="flex w-full items-center justify-center transition-transform duration-500 group-hover/logo:scale-110">

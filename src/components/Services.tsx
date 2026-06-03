@@ -47,13 +47,13 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="bg-surface py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section id="services" className="bg-surface py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <Reveal direction="up" className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Our Services
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-navy sm:text-3xl lg:text-4xl">
             Concrete Scan, Cutting & Core Drilling
           </h2>
           <p className="mt-4 text-muted">

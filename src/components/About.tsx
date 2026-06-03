@@ -10,7 +10,7 @@ const points = [
 
 export default function About() {
   return (
-    <section id="about" className="relative overflow-hidden bg-white py-24">
+    <section id="about" className="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24">
       <div
         className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{
@@ -20,9 +20,9 @@ export default function About() {
       />
       <div className="absolute inset-0 bg-gradient-to-br from-white via-white/95 to-surface" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-5 lg:grid-cols-2 lg:gap-14 lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-8 px-4 sm:px-5 lg:grid-cols-2 lg:gap-14 lg:px-8">
         <Reveal direction="right">
-          <div className="rounded-3xl border border-line bg-white p-8 shadow-xl shadow-navy/5 sm:p-10">
+          <div className="rounded-3xl border border-line bg-white p-6 shadow-xl shadow-navy/5 sm:p-8 md:p-10">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
               About Al Sarh
             </span>

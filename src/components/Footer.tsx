@@ -18,7 +18,7 @@ const columns = [
 export default function Footer() {
   return (
     <footer className="border-t border-line bg-white text-navy">
-      <div className="mx-auto max-w-7xl px-5 py-16 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-12 pb-[calc(3rem+env(safe-area-inset-bottom))] sm:px-5 sm:py-16 sm:pb-16 md:pb-16 lg:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Logo />

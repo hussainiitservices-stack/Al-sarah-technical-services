@@ -25,13 +25,13 @@ const reasons = [
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="bg-white py-24">
-      <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
+    <section id="why-us" className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 sm:gap-14 sm:px-5 lg:grid-cols-2 lg:px-8">
         <Reveal direction="right">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Why Choose Us
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-navy sm:text-3xl lg:text-4xl">
             The Trusted Choice for Concrete Works in the UAE
           </h2>
           <p className="mt-4 text-muted">
@@ -40,13 +40,16 @@ export default function WhyUs() {
             tower project.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <a href="#contact" className="btn-primary px-6 py-3 text-sm">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
+            <a
+              href="#contact"
+              className="btn-primary flex min-h-12 items-center justify-center px-6 py-3 text-sm sm:inline-flex"
+            >
               Request a Quote
             </a>
             <a
               href="#services"
-              className="rounded-full border border-line px-6 py-3 text-sm font-semibold text-navy transition hover:border-navy/30 hover:bg-surface"
+              className="flex min-h-12 items-center justify-center rounded-full border border-line px-6 py-3 text-sm font-semibold text-navy transition active:bg-surface sm:hover:border-navy/30 sm:hover:bg-surface"
             >
               View All Services
             </a>

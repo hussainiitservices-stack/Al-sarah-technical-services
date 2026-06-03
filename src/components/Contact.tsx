@@ -19,14 +19,14 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="bg-surface py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
+    <section id="contact" className="bg-surface py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:gap-12">
           <Reveal direction="right">
             <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
               Get In Touch
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
+            <h2 className="mt-3 text-2xl font-extrabold text-navy sm:text-3xl lg:text-4xl">
               Request a Quote
             </h2>
             <p className="mt-4 max-w-md text-muted">
@@ -88,7 +88,7 @@ export default function Contact() {
                 <a
                   key={c.label}
                   href={c.href}
-                  className="flex items-center gap-4 rounded-2xl border border-line bg-white p-4 transition hover:border-navy/20"
+                  className="flex min-h-[3.25rem] items-center gap-4 rounded-2xl border border-line bg-white p-4 transition active:bg-surface sm:hover:border-navy/20"
                 >
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-navy text-white">
                     <svg
@@ -117,7 +117,7 @@ export default function Contact() {
           <Reveal
             direction="left"
             delay={120}
-            className="rounded-3xl border border-line bg-white p-7 shadow-xl shadow-navy/5 sm:p-9"
+            className="rounded-3xl border border-line bg-white p-5 shadow-xl shadow-navy/5 sm:p-7 md:p-9"
           >
             {submitted ? (
               <div className="flex h-full min-h-80 flex-col items-center justify-center text-center">
@@ -201,7 +201,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="btn-primary w-full px-6 py-3.5 text-sm"
+                  className="btn-primary min-h-12 w-full px-6 py-3.5 text-base sm:text-sm"
                 >
                   Send Message
                 </button>

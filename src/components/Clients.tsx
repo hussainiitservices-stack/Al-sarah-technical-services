@@ -9,18 +9,18 @@ export default function Clients() {
   return (
     <section
       id="clients"
-      className="relative overflow-hidden bg-surface py-24"
+      className="relative overflow-hidden bg-surface py-16 sm:py-20 lg:py-24"
     >
       <div className="pointer-events-none absolute -left-32 top-0 h-80 w-80 animate-glow rounded-full bg-brand/10 blur-3xl" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 animate-float-delayed rounded-full bg-navy/5 blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-5 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <Reveal direction="up" className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             <span className="h-2 w-2 animate-pulse-soft rounded-full bg-navy" />
             Our Trustworthy Customers
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-navy sm:text-3xl lg:text-4xl">
             Trusted by Leading Contractors & Developers
           </h2>
           <p className="mt-4 text-muted">
@@ -30,8 +30,8 @@ export default function Clients() {
         </Reveal>
 
         <Reveal direction="scale" delay={120} className="mt-10">
-          <div className="shimmer-line animate-shimmer rounded-full border border-line bg-white/80 px-5 py-3 text-center text-xs font-medium text-muted motion-reduce:animate-none">
-            Demo logos shown for presentation — replace with official client assets
+          <div className="shimmer-line animate-shimmer rounded-2xl border border-line bg-white/80 px-4 py-3 text-center text-xs leading-relaxed font-medium text-muted motion-reduce:animate-none sm:rounded-full sm:px-5">
+            Demo logos for presentation — replace with official client assets
           </div>
         </Reveal>
       </div>

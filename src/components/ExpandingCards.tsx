@@ -33,26 +33,79 @@ const panels: Panel[] = [
   },
 ];
 
+function PanelContent({ panel }: { panel: Panel }) {
+  return (
+    <>
+      <h3 className="text-xl font-bold text-white sm:text-2xl">{panel.title}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-white/85">
+        {panel.description}
+      </p>
+      <a
+        href="#contact"
+        className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-white active:opacity-80"
+      >
+        Enquire now
+        <svg
+          className="h-4 w-4"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
+          <path
+            d="M5 12h14M13 6l6 6-6 6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </a>
+    </>
+  );
+}
+
 export default function ExpandingCards() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-white py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <Reveal direction="up" className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Premium Solutions
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-navy sm:text-3xl lg:text-4xl">
             Explore Our Core Services
           </h2>
-          <p className="mt-4 text-muted">
-            Hover a panel to see how our specialist teams deliver scanning,
-            cutting and core drilling across the UAE.
+          <p className="mt-4 text-sm text-muted sm:text-base">
+            <span className="md:hidden">Tap a service to learn more.</span>
+            <span className="hidden md:inline">
+              Hover a panel to see how our specialist teams deliver scanning,
+              cutting and core drilling across the UAE.
+            </span>
           </p>
         </Reveal>
 
-        <Reveal direction="up" delay={120}>
+        {/* Mobile: full-width stacked cards */}
+        <div className="mt-8 space-y-4 md:hidden">
+          {panels.map((p) => (
+            <div
+              key={p.title}
+              className="relative min-h-[240px] overflow-hidden rounded-2xl shadow-lg"
+            >
+              <div
+                className="absolute inset-0 bg-cover bg-center"
+                style={{ backgroundImage: `url('${p.image}')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/50 to-navy/20" />
+              <div className="relative flex min-h-[240px] flex-col justify-end p-5">
+                <PanelContent panel={p} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Desktop: horizontal expanding panels */}
+        <Reveal direction="up" delay={120} className="hidden md:block">
           <div className="mt-12 flex h-[460px] w-full gap-3 overflow-hidden">
             {panels.map((p, i) => {
               const isActive = active === i;
@@ -60,7 +113,13 @@ export default function ExpandingCards() {
                 <div
                   key={p.title}
                   onMouseEnter={() => setActive(i)}
+                  onFocus={() => setActive(i)}
                   onClick={() => setActive(i)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setActive(i);
+                  }}
                   className={`relative cursor-pointer overflow-hidden rounded-2xl shadow-lg transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isActive
                       ? "flex-[5] shadow-2xl shadow-navy/20 ring-2 ring-navy/20"
@@ -98,29 +157,7 @@ export default function ExpandingCards() {
                         : "translate-y-4 opacity-0"
                     }`}
                   >
-                    <h3 className="text-2xl font-bold text-white">{p.title}</h3>
-                    <p className="mt-2 max-w-sm text-sm leading-relaxed text-white/80">
-                      {p.description}
-                    </p>
-                    <a
-                      href="#contact"
-                      className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-white transition hover:gap-3"
-                    >
-                      Enquire now
-                      <svg
-                        className="h-4 w-4"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                      >
-                        <path
-                          d="M5 12h14M13 6l6 6-6 6"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </a>
+                    <PanelContent panel={p} />
                   </div>
                 </div>
               );

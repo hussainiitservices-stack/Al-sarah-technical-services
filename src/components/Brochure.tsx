@@ -2,10 +2,10 @@ import Reveal from "./Reveal";
 
 export default function Brochure() {
   return (
-    <section className="bg-white py-20">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="bg-white py-16 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <Reveal direction="up">
-          <div className="relative overflow-hidden rounded-3xl border border-line bg-surface px-8 py-14 text-center sm:px-14">
+          <div className="relative overflow-hidden rounded-3xl border border-line bg-surface px-5 py-10 text-center sm:px-8 sm:py-14 md:px-14">
             <div className="relative">
               <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
                 Company Profile
@@ -40,7 +40,7 @@ export default function Brochure() {
                 </a>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-line px-7 py-3.5 text-sm font-semibold text-navy transition hover:border-navy/30 hover:bg-white"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full border border-line px-7 py-3.5 text-sm font-semibold text-navy transition active:bg-white sm:hover:border-navy/30"
                 >
                   Talk to Our Team
                 </a>

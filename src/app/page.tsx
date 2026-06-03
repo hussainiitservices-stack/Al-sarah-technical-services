@@ -1,4 +1,5 @@
 import ScrollProgress from "@/components/ScrollProgress";
+import MobileCallBar from "@/components/MobileCallBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
@@ -17,7 +18,8 @@ export default function Home() {
     <>
       <ScrollProgress />
       <Navbar />
-      <main className="flex-1">
+      <MobileCallBar />
+      <main className="flex-1 pb-[calc(5.5rem+env(safe-area-inset-bottom))] md:pb-0">
         <Hero />
         <Services />
         <ExpandingCards />

@@ -5,12 +5,12 @@ import { useEffect, useRef, useState } from "react";
 type Direction = "up" | "down" | "left" | "right" | "scale" | "fade";
 
 const hidden: Record<Direction, string> = {
-  up: "opacity-0 translate-y-14 blur-[2px]",
-  down: "opacity-0 -translate-y-14 blur-[2px]",
-  left: "opacity-0 translate-x-16 blur-[2px]",
-  right: "opacity-0 -translate-x-16 blur-[2px]",
-  scale: "opacity-0 scale-[0.88] blur-[3px]",
-  fade: "opacity-0 blur-[2px]",
+  up: "opacity-0 translate-y-10 max-md:blur-none md:translate-y-14 md:blur-[2px]",
+  down: "opacity-0 -translate-y-10 max-md:blur-none md:-translate-y-14 md:blur-[2px]",
+  left: "opacity-0 translate-x-10 max-md:blur-none md:translate-x-16 md:blur-[2px]",
+  right: "opacity-0 -translate-x-10 max-md:blur-none md:-translate-x-16 md:blur-[2px]",
+  scale: "opacity-0 scale-[0.92] max-md:blur-none md:scale-[0.88] md:blur-[3px]",
+  fade: "opacity-0 max-md:blur-none md:blur-[2px]",
 };
 
 const visibleClass =

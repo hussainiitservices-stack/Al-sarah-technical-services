@@ -32,13 +32,13 @@ const cards: Card[] = [
 
 export default function StackingCards() {
   return (
-    <section className="bg-surface py-24">
-      <div className="mx-auto max-w-7xl px-5 lg:px-8">
+    <section className="bg-surface py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-5 lg:px-8">
         <Reveal direction="up" className="mx-auto max-w-2xl text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
             Our Work
           </span>
-          <h2 className="mt-3 text-3xl font-extrabold text-navy sm:text-4xl">
+          <h2 className="mt-3 text-2xl font-extrabold text-navy sm:text-3xl lg:text-4xl">
             Specialist Services, Done Right
           </h2>
           <p className="mt-4 text-muted">
@@ -47,11 +47,11 @@ export default function StackingCards() {
           </p>
         </Reveal>
 
-        <div className="relative mt-14">
+        <div className="relative mt-10 space-y-6 sm:mt-14 md:space-y-0">
           {cards.map((card, i) => (
             <div
               key={card.title}
-              className="sticky"
+              className="relative max-md:static md:sticky"
               style={{ top: `${6 + i * 2.5}rem` }}
             >
               <div className="mb-8 overflow-hidden rounded-3xl border border-line bg-white shadow-xl shadow-navy/5 transition-all duration-700 hover:shadow-2xl hover:shadow-navy/15">
@@ -63,7 +63,7 @@ export default function StackingCards() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent md:bg-gradient-to-r" />
                   </div>
-                  <div className="flex flex-col justify-center p-8 sm:p-12">
+                  <div className="flex flex-col justify-center p-5 sm:p-8 md:p-12">
                     <span className="text-5xl font-extrabold text-navy/15">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -75,7 +75,7 @@ export default function StackingCards() {
                     </p>
                     <a
                       href="#contact"
-                      className="mt-6 inline-flex w-fit items-center gap-2 text-sm font-semibold text-navy transition hover:gap-3 hover:text-brand"
+                      className="mt-6 inline-flex min-h-11 w-fit items-center gap-2 text-sm font-semibold text-navy transition active:text-brand sm:hover:gap-3 sm:hover:text-brand"
                     >
                       Enquire now
                       <svg
